@@ -1,0 +1,7 @@
+{
+    "pattern": {
+        "regexp": ".+",
+        "seek": 1024,
+        "buffer-size": 2024
+    }
+}

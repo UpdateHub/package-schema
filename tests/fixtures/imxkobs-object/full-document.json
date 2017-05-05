@@ -1,0 +1,11 @@
+{
+    "mode": "imxkobs",
+    "filename": "imxkobs-filename",
+    "sha256sum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size": 1024,
+    "1k_padding": true,
+    "search_exponent": 2,
+    "chip_0_device_path": "/dev/sda1",
+    "chip_1_device_path": "/dev/sda2",
+    "install-if-different": "sha256sum"
+}

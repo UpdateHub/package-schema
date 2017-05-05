@@ -1,0 +1,7 @@
+{
+    "mode": "flash",
+    "filename": "flash-filename",
+    "sha256sum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size": 1024,
+    "target": "/dev/sda"
+}

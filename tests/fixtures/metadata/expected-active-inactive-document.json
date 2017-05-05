@@ -1,0 +1,138 @@
+{
+    "product": "4cfebce216b03875300835de00f483e3de7b1c6f150e8dec7fa19a0d41c36722",
+    "version": "2.0",
+    "objects": [
+        [
+            {
+                "mode": "copy",
+                "filename": "etc/passwd",
+                "size": 1024,
+                "sha256sum": "cfe2be1c64b0387500853de0f48303e3de7b1c6f1508dc719eeafa0d41c36722",
+                "filesystem": "btrfs",
+                "target-type": "device",
+                "target": "/dev/sda",
+                "target-path": "/etc/passwd"
+            },
+            {
+                "mode": "tarball",
+                "filename": "etc/passwd",
+                "size": 1024,
+                "sha256sum": "cfe2be1c64b0387500853de0f48303e3de7b1c6f1508dc719eeafa0d41c36722",
+                "filesystem": "ext4",
+                "target-type": "mtdname",
+                "target": "mtd-name",
+                "target-path": "/home/user/music"
+            },
+            {
+                "mode": "raw",
+                "filename": "etc/passwd",
+                "size": 1024,
+                "sha256sum": "cfe2be1c64b0387500853de0f48303e3de7b1c6f1508dc719eeafa0d41c36722",
+                "target-type": "device",
+                "target": "/dev/sda",
+                "compressed": true,
+                "required-uncompressed-size": 2048
+            },
+            {
+                "mode": "raw",
+                "filename": "etc/passwd",
+                "size": 1024,
+                "sha256sum": "cfe2be1c64b0387500853de0f48303e3de7b1c6f1508dc719eeafa0d41c36722",
+                "target-type": "device",
+                "target": "/dev/sdb",
+                "truncate": false,
+                "count": 1024,
+                "seek": 512,
+                "skip": 256,
+                "chunk-size": 128
+            },
+            {
+                "mode": "tarball",
+                "filename": "etc/passwd",
+                "size": 1024,
+                "sha256sum": "cfe2be1c64b0387500853de0f48303e3de7b1c6f1508dc719eeafa0d41c36722",
+                "filesystem": "ext2",
+                "target-type": "ubivolume",
+                "target": "system0",
+                "target-path": "/home/user/videos"
+            },
+            {
+                "mode": "copy",
+                "filename": "etc/passwd",
+                "size": 1024,
+                "sha256sum": "cfe2be1c64b0387500853de0f48303e3de7b1c6f1508dc719eeafa0d41c36722",
+                "filesystem": "ext4",
+                "target-type": "device",
+                "target": "/dev/sda",
+                "target-path": "/usr/bin/python",
+                "mount-options": "-a"
+            }
+        ],
+        [
+            {
+                "mode": "copy",
+                "filename": "etc/passwd",
+                "size": 1024,
+                "sha256sum": "cfe2be1c64b0387500853de0f48303e3de7b1c6f1508dc719eeafa0d41c36722",
+                "filesystem": "btrfs",
+                "target-type": "device",
+                "target": "/dev/sda",
+                "target-path": "/etc/passwd"
+            },
+            {
+                "mode": "tarball",
+                "filename": "etc/passwd",
+                "size": 1024,
+                "sha256sum": "cfe2be1c64b0387500853de0f48303e3de7b1c6f1508dc719eeafa0d41c36722",
+                "filesystem": "ext4",
+                "target-type": "device",
+                "target": "/dev/sdb",
+                "target-path": "/home/user/music"
+            },
+            {
+                "mode": "raw",
+                "filename": "etc/passwd",
+                "size": 1024,
+                "sha256sum": "cfe2be1c64b0387500853de0f48303e3de7b1c6f1508dc719eeafa0d41c36722",
+                "target-type": "device",
+                "target": "/dev/sdb",
+                "compressed": true,
+                "required-uncompressed-size": 2048
+            },
+            {
+                "mode": "raw",
+                "filename": "etc/passwd",
+                "size": 1024,
+                "sha256sum": "cfe2be1c64b0387500853de0f48303e3de7b1c6f1508dc719eeafa0d41c36722",
+                "target-type": "device",
+                "target": "/dev/sdb",
+                "truncate": false,
+                "count": 1024,
+                "seek": 512,
+                "skip": 256,
+                "chunk-size": 128
+            },
+            {
+                "mode": "tarball",
+                "filename": "etc/passwd",
+                "size": 1024,
+                "sha256sum": "cfe2be1c64b0387500853de0f48303e3de7b1c6f1508dc719eeafa0d41c36722",
+                "filesystem": "ext2",
+                "target-type": "ubivolume",
+                "target": "system1",
+                "target-path": "/home/user/videos"
+            },
+            {
+                "mode": "copy",
+                "filename": "etc/passwd",
+                "size": 1024,
+                "sha256sum": "cfe2be1c64b0387500853de0f48303e3de7b1c6f1508dc719eeafa0d41c36722",
+                "filesystem": "ext4",
+                "target-type": "device",
+                "target": "/dev/sda",
+                "target-path": "/usr/bin/python",
+                "mount-options": "-a"
+            }
+        ]
+    ]
+}

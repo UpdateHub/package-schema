@@ -1,0 +1,10 @@
+{
+    "mode": "copy",
+    "filename": "etc/passswd",
+    "size": 1024,
+    "sha256sum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "target-type": "device",
+    "target": "/dev/sda",
+    "filesystem": 1,
+    "target-path": "/"
+}

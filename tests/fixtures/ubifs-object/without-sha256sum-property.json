@@ -1,0 +1,7 @@
+{
+    "mode": "ubifs",
+    "filename": "ubifs",
+    "size": 1024,
+    "target-type": "ubivolume",
+    "target": "home"
+}

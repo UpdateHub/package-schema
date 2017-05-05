@@ -1,0 +1,9 @@
+{
+    "version": "2.0",
+    "pattern": {
+        "regexp": ".+",
+        "seek": 1024,
+        "buffer-size": 2024,
+        "extra": "property"
+    }
+}

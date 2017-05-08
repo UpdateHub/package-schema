@@ -12,7 +12,10 @@ from jsonschema import exceptions, Draft4Validator, FormatChecker
 from refresolver import OrderedRefResolver
 
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT_DIR = os.path.dirname(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+SCHEMAS_DIR = os.path.join(ROOT_DIR, 'pkgschema', 'schemas')
+FIXTURES_DIR = os.path.join(ROOT_DIR, 'tests/schemas/fixtures')
 
 
 def load(document):
@@ -28,7 +31,7 @@ def validate_schema(schema):
 
 
 def validate_document(schema, document, expected, error=None):
-    base_uri = 'file://{}/'.format(os.path.abspath('schemas'))
+    base_uri = 'file://{}/'.format(SCHEMAS_DIR)
     resolver = OrderedRefResolver(base_uri, schema)
     format_checker = FormatChecker(formats=['uri'])
     validator = Draft4Validator(
@@ -50,14 +53,17 @@ def validate_document(schema, document, expected, error=None):
 
 
 def main(schema, document, expected, error=None):
-    os.chdir(BASE_DIR)
-    schema = load(os.path.join('schemas', schema))
+    with open('/tmp/efu', 'w') as fp:
+        fp.write(os.getcwd())
+        fp.write('\n')
+        fp.write(ROOT_DIR)
+    schema = load(os.path.join(SCHEMAS_DIR, schema))
     schema_result = validate_schema(schema)
     if schema_result is not None:
         print(schema_result)
         return 1
 
-    document = load(os.path.join('tests', 'fixtures', document))
+    document = load(os.path.join(FIXTURES_DIR, document))
     document_result = validate_document(schema, document, expected, error)
     if document_result is not None:
         print(document_result)

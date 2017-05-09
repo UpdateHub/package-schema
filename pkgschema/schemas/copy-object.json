@@ -32,6 +32,20 @@
             "type": "string",
             "pattern": "^[0-9]{4}$"
         },
+        "target-uid": {
+            "description": "The UNIX user ID to be set in target when installed",
+            "oneOf": [
+                {"type": "string"},
+                {"type": "integer"}
+            ]
+        },
+        "target-gid": {
+            "description": "The UNIX group ID to be set in target when installed",
+            "oneOf": [
+                {"type": "string"},
+                {"type": "integer"}
+            ]
+        },
         "target": {
             "$ref": "definitions.json#/target"
         },
@@ -72,6 +86,8 @@
     "additionalProperties": false,
 
     "dependencies": {
+        "target-gid": ["target-uid"],
+        "target-uid": ["target-gid"],
         "mode": {
             "properties": {
                 "mode": {

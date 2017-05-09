@@ -146,6 +146,52 @@ runner "copy-object target-mode property must be a string" \
        INVALID \
        "properties/target-mode/type: 777 is not of type 'string'"
 
+## PROPERTY: target-gid
+runner "copy-object target-gid as a string is valid" \
+       copy-object.json \
+       copy-object/expected-string-target-gid-property.json \
+       VALID
+
+runner "copy-object target-gid as a number is valid" \
+       copy-object.json \
+       copy-object/expected-number-target-gid-property.json \
+       VALID
+
+runner "copy-object target-gid property must be a string or an integer" \
+       copy-object.json \
+       copy-object/invalid-target-gid-property-type.json \
+       INVALID \
+       "properties/target-gid/oneOf: [] is not valid under any of the given schemas"
+
+runner "copy-object target-gid property requires target-uid" \
+       copy-object.json \
+       copy-object/with-target-gid-and-without-target-uid.json \
+       INVALID \
+       "dependencies: 'target-uid' is a dependency of 'target-gid'"
+
+## PROPERTY: target-uid
+runner "copy-object target-uid as a string is valid" \
+       copy-object.json \
+       copy-object/expected-string-target-uid-property.json \
+       VALID
+
+runner "copy-object target-uid as a number is valid" \
+       copy-object.json \
+       copy-object/expected-number-target-uid-property.json \
+       VALID
+
+runner "copy-object target-uid property must be a string or an integer" \
+       copy-object.json \
+       copy-object/invalid-target-uid-property-type.json \
+       INVALID \
+       "properties/target-uid/oneOf: [] is not valid under any of the given schemas"
+
+runner "copy-object target-uid property requires target-uid" \
+       copy-object.json \
+       copy-object/with-target-uid-and-without-target-gid.json \
+       INVALID \
+       "dependencies: 'target-gid' is a dependency of 'target-uid'"
+
 ## PROPERTY: compressed
 runner "copy-object compressed property is not required" \
        copy-object.json \

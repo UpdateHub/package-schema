@@ -4,10 +4,19 @@
 import json
 import os
 
-from jsonschema import Draft4Validator, FormatChecker, RefResolver
+from jsonschema import Draft4Validator, FormatChecker, RefResolver, exceptions
 
 
 SCHEMAS_DIR = os.path.join(os.path.dirname(__file__), 'schemas')
+
+
+class ValidationError(exceptions.ValidationError):
+
+    def __init__(self, err):
+        self._err = err
+
+    def __str__(self):
+        return str(self._err)
 
 
 def validate_schema(schema_fn, obj):
@@ -18,7 +27,10 @@ def validate_schema(schema_fn, obj):
     format_checker = FormatChecker(formats=['uri'])
     validator = Draft4Validator(
         schema, resolver=resolver, format_checker=format_checker)
-    return validator.validate(obj)
+    try:
+        validator.validate(obj)
+    except exceptions.ValidationError as err:
+        raise ValidationError(err)
 
 
 def validate_metadata(metadata):

@@ -6,8 +6,6 @@ import os
 import tempfile
 import unittest
 
-from jsonschema.exceptions import ValidationError
-
 import pkgschema
 
 
@@ -57,12 +55,18 @@ class JSONSchemaValidatorTestCase(BaseTestCase):
         self.assertIsNone(pkgschema.validate_schema(self.schema, obj))
 
     def test_validate_raises_error_when_invalid(self):
-        with self.assertRaises(ValidationError):
+        with self.assertRaises(pkgschema.ValidationError):
             pkgschema.validate_schema(self.schema, {})
-        with self.assertRaises(ValidationError):
+        with self.assertRaises(pkgschema.ValidationError):
             pkgschema.validate_schema(self.schema, {'test': 1})
-        with self.assertRaises(ValidationError):
+        with self.assertRaises(pkgschema.ValidationError):
             pkgschema.validate_schema(self.schema, {'test': 'ok', 'extra': 2})
+
+    def test_exception_string_returns_string(self):
+        try:
+            pkgschema.validate_schema(self.schema, {})
+        except pkgschema.ValidationError as err:
+            self.assertIsInstance(str(err), str)
 
 
 class PackageSchemaValidatorTestCase(BaseTestCase):
@@ -74,5 +78,5 @@ class PackageSchemaValidatorTestCase(BaseTestCase):
         self.assertIsNone(pkgschema.validate_metadata(obj))
 
     def test_validate_raises_error_when_invalid(self):
-        with self.assertRaises(ValidationError):
+        with self.assertRaises(pkgschema.ValidationError):
             pkgschema.validate_metadata({})

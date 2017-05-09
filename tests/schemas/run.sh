@@ -123,6 +123,29 @@ runner "copy-object target property is required" \
        INVALID \
        "required: 'target' is a required property"
 
+## PROPERTY: target-mode
+runner "copy-object expected target-mode is valid" \
+       copy-object.json \
+       copy-object/expected-target-mode-property.json \
+       VALID
+
+runner "copy-object invalid target-mode pattern" \
+       copy-object.json \
+       copy-object/invalid-target-mode-property-pattern.json \
+       INVALID \
+       "properties/target-mode/pattern: '777' does not match '^[0-9]{4}$'"
+
+runner "copy-object target-mode property is not required" \
+       copy-object.json \
+       copy-object/without-target-mode-property.json \
+       VALID
+
+runner "copy-object target-mode property must be a string" \
+       copy-object.json \
+       copy-object/invalid-target-mode-property-type.json \
+       INVALID \
+       "properties/target-mode/type: 777 is not of type 'string'"
+
 ## PROPERTY: compressed
 runner "copy-object compressed property is not required" \
        copy-object.json \

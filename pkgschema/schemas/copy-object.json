@@ -27,6 +27,11 @@
             "type": "string",
             "enum": ["device"]
         },
+        "target-mode": {
+            "description": "The mode which the target will have after installed",
+            "type": "string",
+            "pattern": "^[0-9]{4}$"
+        },
         "target": {
             "$ref": "definitions.json#/target"
         },

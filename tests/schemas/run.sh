@@ -1,5 +1,5 @@
 # Copyright (C) 2017 O.S. Systems Software LTDA.
-# This software is released under the MIT License
+# SPDX-License-Identifier: MIT
 
 # Set working dir
 cd $(dirname $0)

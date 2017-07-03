@@ -1019,51 +1019,6 @@ runner "install-if-different custom-pattern with only required values is valid" 
        VALID
 
 
-# SCHEMA: supported-hardware.json
-runner "supported-hardware expected document is valid" \
-       supported-hardware.json \
-       supported-hardware/expected-document.json \
-       VALID
-
-runner "supported-hardware with additional properties is invalid" \
-       supported-hardware.json \
-       supported-hardware/with-additional-properties.json \
-       INVALID \
-       "additionalProperties: Additional properties are not allowed ('extra' was unexpected)"
-
-## PROPERTY: hardware
-runner "supported-hardware hardware property is required" \
-       supported-hardware.json \
-       supported-hardware/without-hardware-property.json \
-       INVALID \
-       "required: 'hardware' is a required property"
-
-runner "supported-hardware hardware type must be a string" \
-       supported-hardware.json \
-       supported-hardware/invalid-hardware-property-type.json \
-       INVALID \
-       "properties/hardware/type: 1 is not of type 'string'"
-
-runner "supported-hardware empty hardware property is invalid" \
-       supported-hardware.json \
-       supported-hardware/empty-hardware-property.json \
-       INVALID \
-       "properties/hardware/minLength: '' is too short"
-
-## PROPERTY: hardware-rev
-runner "supported-hardware hardware-rev property type must be a string" \
-       supported-hardware.json \
-       supported-hardware/invalid-hardware-rev-property-type.json \
-       INVALID \
-       "properties/hardware-rev/type: 1 is not of type 'string'"
-
-runner "supported-hardware empty hardware-rev property is invalid" \
-       supported-hardware.json \
-       supported-hardware/empty-hardware-rev-property.json \
-       INVALID \
-       "properties/hardware-rev/minLength: '' is too short"
-
-
 # SCHEMA: metadata.json
 runner "metadata expected document is valid" \
        metadata.json \
@@ -1117,35 +1072,35 @@ runner "metadata empty version is invalid" \
        INVALID \
        "properties/version/minLength: '' is too short"
 
-## PROPERTY: supported-hardware
-runner "metadata supported-hardware property is not required" \
+## PROPERTY: supported-hardwares
+runner "metadata supported-hardwares property is not required" \
        metadata.json \
-       metadata/without-supported-hardware-property.json \
+       metadata/without-supported-hardwares-property.json \
        VALID
 
-runner "metadata supported-hardware property type must be an array" \
+runner "metadata supported-hardwares property type must be an array" \
        metadata.json \
-       metadata/invalid-supported-hardware-type.json \
+       metadata/invalid-supported-hardwares-type.json \
        INVALID \
-       "properties/supported-hardware/type: 1 is not of type 'array'"
+       "properties/supported-hardwares/type: 1 is not of type 'array'"
 
-runner "metadata empty supported-hardware property is invalid" \
+runner "metadata empty supported-hardwares property is invalid" \
        metadata.json \
-       metadata/empty-supported-hardware-property.json \
+       metadata/empty-supported-hardwares-property.json \
        INVALID \
-       "properties/supported-hardware/minItems: [] is too short"
+       "properties/supported-hardwares/minItems: [] is too short"
 
-runner "metadata supported-hardware items type must be an object" \
+runner "metadata supported-hardwares items type must be an string" \
        metadata.json \
-       metadata/invalid-supported-hardware-item-type.json \
+       metadata/invalid-supported-hardwares-item-type.json \
        INVALID \
-       "properties/supported-hardware/items/type: 1 is not of type 'object'"
+       "properties/supported-hardwares/items/type: 1 is not of type 'string'"
 
-runner "metadata supported-hardware items must be unique" \
+runner "metadata supported-hardwares items must be unique" \
        metadata.json \
-       metadata/repeated_supported_hardware.json \
+       metadata/repeated-supported-hardwares-items.json \
        INVALID \
-       "properties/supported-hardware/uniqueItems: [OrderedDict([('hardware', 'Super Board'), ('hardware-rev', 'Rev. 1')]), OrderedDict([('hardware', 'Super Board'), ('hardware-rev', 'Rev. 1')])] has non-unique elements"
+       "properties/supported-hardwares/uniqueItems: ['Super Board', 'Super Board'] has non-unique elements"
 
 ## PROPERTY: objects
 runner "metadata objects property is required" \

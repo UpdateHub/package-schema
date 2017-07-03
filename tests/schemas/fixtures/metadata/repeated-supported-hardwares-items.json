@@ -11,14 +11,8 @@
             "target": "/dev/sda"
         }
     ],
-    "supported-hardware": [
-        {
-            "hardware": "Super Board",
-            "hardware-rev": "Rev. 1"
-        },
-        {
-            "hardware": "Super Board",
-            "hardware-rev": "Rev. 1"
-        }
+    "supported-hardwares": [
+        "Super Board",
+        "Super Board"
     ]
 }

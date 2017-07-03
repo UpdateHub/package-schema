@@ -16,11 +16,11 @@
             "type": "string",
             "minLength": 1
         },
-        "supported-hardware": {
-            "description": "A list of objects describing the update hardware targets",
+        "supported-hardwares": {
+            "description": "A list of strings describing the targeted hardwares. If not presentd, all hardwares are targeted",
             "type": "array",
             "items": {
-                "$ref": "supported-hardware.json"
+                "type": "string"
             },
             "minItems": 1,
             "uniqueItems": true

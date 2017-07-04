@@ -11,5 +11,8 @@
             "target": "/dev/sda"
         }
     ],
-    "supported-hardwares": 1
+    "supported-hardware": [
+        "Super Board",
+        "Super Board"
+    ]
 }

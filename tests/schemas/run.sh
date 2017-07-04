@@ -1072,35 +1072,46 @@ runner "metadata empty version is invalid" \
        INVALID \
        "properties/version/minLength: '' is too short"
 
-## PROPERTY: supported-hardwares
-runner "metadata supported-hardwares property is not required" \
+## PROPERTY: supported-hardware
+runner "metadata supported-hardware property is required" \
        metadata.json \
-       metadata/without-supported-hardwares-property.json \
+       metadata/without-supported-hardware-property.json \
+       INVALID \
+       "required: 'supported-hardware' is a required property"
+
+runner "metadata supported-hardware as an array of identifiers is valid" \
+       metadata.json \
+       metadata/valid-supported-hardware-propert-with-array.json \
        VALID
 
-runner "metadata supported-hardwares property type must be an array" \
+runner "metadata supported-hardware as 'any' string is valid" \
        metadata.json \
-       metadata/invalid-supported-hardwares-type.json \
-       INVALID \
-       "properties/supported-hardwares/type: 1 is not of type 'array'"
+       metadata/valid-supported-hardware-property-with-any.json \
+       VALID
 
-runner "metadata empty supported-hardwares property is invalid" \
+runner "metadata supported-hardware as array must not be empty" \
        metadata.json \
-       metadata/empty-supported-hardwares-property.json \
+       metadata/empty-supported-hardware-property.json \
        INVALID \
-       "properties/supported-hardwares/minItems: [] is too short"
+       "properties/supported-hardware/oneOf: [] is not valid under any of the given schemas"
 
-runner "metadata supported-hardwares items type must be an string" \
+runner "metadata supported-hardware array items type must be a string" \
        metadata.json \
-       metadata/invalid-supported-hardwares-item-type.json \
+       metadata/invalid-supported-hardware-item-type.json \
        INVALID \
-       "properties/supported-hardwares/items/type: 1 is not of type 'string'"
+       "properties/supported-hardware/oneOf: [1] is not valid under any of the given schemas"
 
-runner "metadata supported-hardwares items must be unique" \
+runner "metadata supported-hardware array items must be unique" \
        metadata.json \
-       metadata/repeated-supported-hardwares-items.json \
+       metadata/repeated-supported-hardware-items.json \
        INVALID \
-       "properties/supported-hardwares/uniqueItems: ['Super Board', 'Super Board'] has non-unique elements"
+       "properties/supported-hardware/oneOf: ['Super Board', 'Super Board'] is not valid under any of the given schemas"
+
+runner "metadata supported-hardware accepts onle 'any' as string" \
+       metadata.json \
+       metadata/invalid-supported-hardware-string.json \
+       INVALID \
+       "properties/supported-hardware/oneOf: '' is not valid under any of the given schemas"
 
 ## PROPERTY: objects
 runner "metadata objects property is required" \

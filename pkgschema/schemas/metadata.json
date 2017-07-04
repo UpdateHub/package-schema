@@ -16,14 +16,22 @@
             "type": "string",
             "minLength": 1
         },
-        "supported-hardwares": {
-            "description": "A list of strings describing the targeted hardwares. If not presentd, all hardwares are targeted",
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "minItems": 1,
-            "uniqueItems": true
+        "supported-hardware": {
+            "description": "A list of hardware identifiers compatible with this package. You can provide a string 'any' to specify that any hardware is compatible.",
+            "oneOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 1,
+                    "uniqueItems": true
+                },
+                {
+                    "type": "string",
+                    "enum": ["any"]
+                }
+            ]
         },
         "objects": {
             "type": "array",
@@ -49,6 +57,7 @@
     "required": [
         "objects",
         "product",
+        "supported-hardware",
         "version"
     ],
 

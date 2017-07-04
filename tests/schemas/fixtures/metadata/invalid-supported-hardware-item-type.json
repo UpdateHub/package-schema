@@ -11,5 +11,5 @@
             "target": "/dev/sda"
         }
     ],
-    "supported-hardwares": []
+    "supported-hardware": [1]
 }

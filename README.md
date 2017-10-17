@@ -1,4 +1,4 @@
-# updatehub-package-schema [![Build Status](https://travis-ci.org/UpdateHub/package-schema.svg?branch=master)](https://travis-ci.org/UpdateHub/package-schema) [![Coverage Status](https://coveralls.io/repos/github/UpdateHub/package-schema/badge.svg?branch=master)](https://coveralls.io/github/UpdateHub/package-schema?branch=master)
+# updatehub-package-schema [![Build Status](https://travis-ci.org/updatehub/package-schema.svg?branch=master)](https://travis-ci.org/updatehub/package-schema) [![Coverage Status](https://coveralls.io/repos/github/UpdateHub/package-schema/badge.svg?branch=master)](https://coveralls.io/github/UpdateHub/package-schema?branch=master)
 
 UpdateHub package schema validator for Python
 

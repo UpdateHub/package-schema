@@ -9,6 +9,12 @@ import unittest
 import pkgschema
 
 
+def get_fixture_metadata():
+    fn = os.path.join(os.path.dirname(__file__), 'fixture-metadata.json')
+    with open(fn) as fp:
+        return json.load(fp)
+
+
 class BaseTestCase(unittest.TestCase):
 
     def __init__(self, *args, **kwargs):
@@ -72,11 +78,36 @@ class JSONSchemaValidatorTestCase(BaseTestCase):
 class PackageSchemaValidatorTestCase(BaseTestCase):
 
     def test_validate_returns_None_when_valid(self):
-        fn = os.path.join(os.path.dirname(__file__), 'fixture-metadata.json')
-        with open(fn) as fp:
-            obj = json.load(fp)
-        self.assertIsNone(pkgschema.validate_metadata(obj))
+        metadata = get_fixture_metadata()
+        self.assertIsNone(pkgschema.validate_metadata(metadata))
 
-    def test_validate_raises_error_when_invalid(self):
+    def test_validate_raises_error_when_metadata_is_invalid(self):
         with self.assertRaises(pkgschema.ValidationError):
             pkgschema.validate_metadata({})
+
+    def test_validate_raises_error_when_filenames_are_invalid(self):
+        metadata = get_fixture_metadata()
+        metadata['objects'].append(metadata['objects'][0][::-1])
+        metadata['objects'][0][0]['filename'] = 'another'
+        with self.assertRaises(pkgschema.ValidationError):
+            pkgschema.validate_metadata(metadata)
+
+
+class FilenamesObjectsValidatorTestCase(unittest.TestCase):
+
+    def test_returns_None_if_valid(self):
+        objects = get_fixture_metadata()['objects']
+        self.assertIsNone(pkgschema.validate_objects_filenames(objects))
+
+    def test_raises_error_if_filename_diverges_across_sets(self):
+        obj1 = {'filename': 'foo'}
+        obj2 = {'filename': 'bar'}
+        objects = [[obj1], [obj2]]
+        with self.assertRaises(pkgschema.ValidationError):
+            pkgschema.validate_objects_filenames(objects)
+
+    def test_returns_None_if_other_options_are_different(self):
+        obj1 = {'filename': 'bar', 'option': 1}
+        obj2 = {'filename': 'bar', 'option': 2}
+        objects = [[obj1], [obj2]]
+        self.assertIsNone(pkgschema.validate_objects_filenames(objects))

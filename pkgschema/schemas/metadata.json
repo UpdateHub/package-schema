@@ -44,7 +44,8 @@
                         {"$ref": "imxkobs-object.json"},
                         {"$ref": "raw-object.json"},
                         {"$ref": "tarball-object.json"},
-                        {"$ref": "ubifs-object.json"}
+                        {"$ref": "ubifs-object.json"},
+                        {"$ref": "mender-object.json"}
                     ]
                 },
                 "minItems": 1

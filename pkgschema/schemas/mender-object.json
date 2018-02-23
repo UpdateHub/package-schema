@@ -1,0 +1,33 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "title": "Mender object",
+    "description": "Object specifications for Mender mode",
+
+    "type": "object",
+
+    "properties": {
+        "mode": {
+            "$ref": "definitions.json#/mode"
+        },
+        "filename": {
+            "$ref": "definitions.json#/filename"
+        }
+    },
+
+    "required": [
+        "filename"
+    ],
+
+    "additionalProperties": false,
+
+    "dependencies": {
+        "mode": {
+            "properties": {
+                "mode": {
+                    "enum": ["mender"]
+                }
+            }
+        }
+    }
+}

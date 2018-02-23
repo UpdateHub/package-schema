@@ -80,6 +80,10 @@
                 "target": "/dev/sda",
                 "target-path": "/usr/bin/python",
                 "mount-options": "-a"
+            },
+            {
+                "mode": "mender",
+                "filename": "artifact.mender"
             }
         ]
     ]

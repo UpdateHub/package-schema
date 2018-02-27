@@ -933,6 +933,44 @@ runner "ubifs-object target property is required" \
        "required: 'target' is a required property"
 
 
+# SCHEMA: mender-object.json
+runner "mender-object expected document is valid" \
+       mender-object.json \
+       mender-object/expected-document.json \
+       VALID
+
+## PROPERTY: mode
+runner "mender-object mode property is required" \
+       mender-object.json \
+       mender-object/without-mode-property.json \
+       INVALID \
+       "required: 'mode' is a required property"
+
+runner "mender-object wrong mode property choice is invalid" \
+       mender-object.json \
+       mender-object/invalid-mode-property-choice.json \
+       INVALID \
+       "dependencies/mode/properties/mode/enum: 'tarball' is not one of ['mender']"
+
+## PROPERTY: filename
+runner "mender-object expected filename property is valid" \
+       mender-object.json \
+       mender-object/expected-filename-property.json \
+       VALID
+
+runner "mender-object filename property is required" \
+       mender-object.json \
+       mender-object/without-filename-property.json \
+       INVALID \
+       "required: 'filename' is a required property"
+
+runner "mender-object filename property type must be an integer" \
+       mender-object.json \
+       mender-object/invalid-filename-property-type.json \
+       INVALID \
+       "properties/filename/type: 1 is not of type 'string'"
+
+
 # SCHEMA: install-if-different.json
 
 ## sha256sum

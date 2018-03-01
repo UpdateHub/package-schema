@@ -12,12 +12,20 @@
         },
         "filename": {
             "$ref": "definitions.json#/filename"
+        },
+        "size": {
+            "$ref": "definitions.json#/size"
+        },
+        "sha256sum": {
+            "$ref": "definitions.json#/sha256sum"
         }
     },
 
     "required": [
         "mode",
-        "filename"
+        "filename",
+        "size",
+        "sha256sum"
     ],
 
     "additionalProperties": false,

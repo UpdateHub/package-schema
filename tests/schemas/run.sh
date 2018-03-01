@@ -970,6 +970,19 @@ runner "mender-object filename property type must be an integer" \
        INVALID \
        "properties/filename/type: 1 is not of type 'string'"
 
+## PROPERTY: size
+runner "mender-object size property is required" \
+       mender-object.json \
+       mender-object/without-size-property.json \
+       INVALID \
+       "required: 'size' is a required property"
+
+runner "mender-object size property type must be an integer" \
+       mender-object.json \
+       mender-object/invalid-size-property-type.json \
+       INVALID \
+       "properties/size/type: '1024' is not of type 'integer'"
+
 
 # SCHEMA: install-if-different.json
 

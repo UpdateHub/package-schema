@@ -984,6 +984,57 @@ runner "mender-object size property type must be an integer" \
        "properties/size/type: '1024' is not of type 'integer'"
 
 
+# SCHEMA: zephyr-object.json
+runner "zephyr-object expected document is valid" \
+       zephyr-object.json \
+       zephyr-object/expected-document.json \
+       VALID
+
+## PROPERTY: mode
+runner "zephyr-object mode property is required" \
+       zephyr-object.json \
+       zephyr-object/without-mode-property.json \
+       INVALID \
+       "required: 'mode' is a required property"
+
+runner "zephyr-object wrong mode property choice is invalid" \
+       zephyr-object.json \
+       zephyr-object/invalid-mode-property-choice.json \
+       INVALID \
+       "dependencies/mode/properties/mode/enum: 'tarball' is not one of ['zephyr']"
+
+## PROPERTY: filename
+runner "zephyr-object expected filename property is valid" \
+       zephyr-object.json \
+       zephyr-object/expected-filename-property.json \
+       VALID
+
+runner "zephyr-object filename property is required" \
+       zephyr-object.json \
+       zephyr-object/without-filename-property.json \
+       INVALID \
+       "required: 'filename' is a required property"
+
+runner "zephyr-object filename property type must be an integer" \
+       zephyr-object.json \
+       zephyr-object/invalid-filename-property-type.json \
+       INVALID \
+       "properties/filename/type: 1 is not of type 'string'"
+
+## PROPERTY: size
+runner "zephyr-object size property is required" \
+       zephyr-object.json \
+       zephyr-object/without-size-property.json \
+       INVALID \
+       "required: 'size' is a required property"
+
+runner "zephyr-object size property type must be an integer" \
+       zephyr-object.json \
+       zephyr-object/invalid-size-property-type.json \
+       INVALID \
+       "properties/size/type: '1024' is not of type 'integer'"
+
+
 # SCHEMA: install-if-different.json
 
 ## sha256sum

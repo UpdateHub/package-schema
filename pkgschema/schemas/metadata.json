@@ -45,7 +45,8 @@
                         {"$ref": "raw-object.json"},
                         {"$ref": "tarball-object.json"},
                         {"$ref": "ubifs-object.json"},
-                        {"$ref": "mender-object.json"}
+                        {"$ref": "mender-object.json"},
+                        {"$ref": "zephyr-object.json"}
                     ]
                 },
                 "minItems": 1

@@ -933,6 +933,46 @@ runner "ubifs-object target property is required" \
        "required: 'target' is a required property"
 
 
+# SCHEMA: uboot-env-object.json
+runner "uboot-env-object minimal document is valid" \
+       uboot-env-object.json \
+       uboot-env-object/minimal-document.json \
+       VALID
+
+runner "uboot-env-object full document is valid" \
+       uboot-env-object.json \
+       uboot-env-object/full-document.json \
+       VALID
+
+## PROPERTY: mode
+runner "uboot-env-object mode property is required" \
+       uboot-env-object.json \
+       uboot-env-object/without-mode-property.json \
+       INVALID \
+       "required: 'mode' is a required property"
+
+## PROPERTY: filename
+runner "uboot-env-object filename property is required" \
+       uboot-env-object.json \
+       uboot-env-object/without-filename-property.json \
+       INVALID \
+       "required: 'filename' is a required property"
+
+## PROPERTY: size
+runner "uboot-env-object size property is required" \
+       uboot-env-object.json \
+       uboot-env-object/without-size-property.json \
+       INVALID \
+       "required: 'size' is a required property"
+
+## PROPERTY: sha256sum
+runner "uboot-env-object sha256sum property is required" \
+       uboot-env-object.json \
+       uboot-env-object/without-sha256sum-property.json \
+       INVALID \
+       "required: 'sha256sum' is a required property"
+
+
 # SCHEMA: mender-object.json
 runner "mender-object expected document is valid" \
        mender-object.json \

@@ -45,6 +45,7 @@
                         {"$ref": "raw-object.json"},
                         {"$ref": "tarball-object.json"},
                         {"$ref": "ubifs-object.json"},
+                        {"$ref": "uboot-env-object.json"},
                         {"$ref": "mender-object.json"},
                         {"$ref": "zephyr-object.json"}
                     ]

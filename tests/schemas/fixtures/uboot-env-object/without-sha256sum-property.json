@@ -1,0 +1,5 @@
+{
+    "mode": "uboot-env",
+    "filename": "updatehub.defenv",
+    "size": 1024
+}

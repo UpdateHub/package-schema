@@ -21,13 +21,8 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
       - name: Install Dependencies
-        run: pip install tox coveralls
+        run: pip install tox
       - name: Run schemas tests
         run: ./tests/schemas/run.sh
       - name: Run Tox
         run: tox -e py
-      - name: Coverage
-        run: coveralls
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-

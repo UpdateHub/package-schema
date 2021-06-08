@@ -43,6 +43,7 @@
                         {"$ref": "flash-object.json"},
                         {"$ref": "imxkobs-object.json"},
                         {"$ref": "raw-object.json"},
+                        {"$ref": "raw-delta-object.json"},
                         {"$ref": "tarball-object.json"},
                         {"$ref": "ubifs-object.json"},
                         {"$ref": "uboot-env-object.json"},

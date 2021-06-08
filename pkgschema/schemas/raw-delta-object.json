@@ -1,0 +1,52 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+
+    "title": "Raw Delta upgrade object",
+    "description": "Object specifications for a differential raw upgrade mode",
+
+    "type": "object",
+
+    "properties": {
+        "mode": {
+            "$ref": "definitions.json#/mode"
+        },
+        "filename": {
+            "$ref": "definitions.json#/filename"
+        },
+        "sha256sum": {
+            "$ref": "definitions.json#/sha256sum"
+        },
+        "target-type": {
+            "description": "The type of target (only device)",
+            "type": "string",
+            "enum": ["device"]
+        },
+        "target": {
+            "$ref": "definitions.json#/target"
+        },
+        "size": {
+            "$ref": "definitions.json#/size"
+        }
+    },
+
+    "required": [
+        "filename",
+        "mode",
+        "sha256sum",
+        "target",
+        "target-type",
+        "size"
+    ],
+
+    "additionalProperties": false,
+
+    "dependencies": {
+        "mode": {
+            "properties": {
+                "mode": {
+                    "enum": ["raw-delta"]
+                }
+            }
+        }
+    }
+}

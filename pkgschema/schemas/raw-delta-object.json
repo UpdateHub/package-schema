@@ -24,6 +24,12 @@
         "target": {
             "$ref": "definitions.json#/target"
         },
+        "chunk-size": {
+            "$ref": "definitions.json#/chunk-size"
+        },
+        "seek": {
+            "$ref": "definitions.json#/seek"
+        },
         "size": {
             "$ref": "definitions.json#/size"
         }

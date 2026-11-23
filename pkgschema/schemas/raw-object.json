@@ -23,9 +23,9 @@
             "$ref": "install-if-different.json"
         },
         "target-type": {
-            "description": "The type of target (only device)",
+            "description": "The type of target: device, or boot-emmc for the eMMC hardware boot partition of the installation set being installed (the target is then the eMMC base device, e.g. /dev/mmcblk1)",
             "type": "string",
-            "enum": ["device"]
+            "enum": ["device", "boot-emmc"]
         },
         "target": {
             "$ref": "definitions.json#/target"

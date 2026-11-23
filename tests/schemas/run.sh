@@ -511,7 +511,7 @@ runner "raw-object target-type property must be mtdname or device" \
        raw-object.json \
        raw-object/invalid-target-type.json \
        INVALID  \
-       "properties/target-type/enum: 'ubivolume' is not one of ['device']"
+       "properties/target-type/enum: 'ubivolume' is not one of ['device', 'boot-emmc']"
 
 ## PROPERTY: target
 runner "raw-object target is required" \

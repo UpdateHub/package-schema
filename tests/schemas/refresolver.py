@@ -1,8 +1,13 @@
 import json
-from collections import OrderedDict
 
 from jsonschema import RefResolver
-from jsonschema.compat import urlopen, urlsplit
+from urllib.parse import urlsplit
+from urllib.request import urlopen
+
+try:
+    import requests
+except ImportError:
+    requests = None
 
 
 class OrderedRefResolver(RefResolver):
@@ -10,7 +15,7 @@ class OrderedRefResolver(RefResolver):
     def resolve_remote(self, uri):
         '''
         Basically the same code provided by RefResolver, but we use
-        OrderedDict as base class to load json documents.
+        a plain dict (insertion ordered) to load json documents.
         '''
         scheme = urlsplit(uri).scheme
         if scheme in self.handlers:
@@ -26,8 +31,7 @@ class OrderedRefResolver(RefResolver):
                 result = requests.get(uri).json
         else:
             result = json.loads(
-                urlopen(uri).read().decode("utf-8"),
-                object_pairs_hook=OrderedDict)
+                urlopen(uri).read().decode("utf-8"))
         if self.cache_remote:
             self.store[uri] = result
         return result

@@ -5,7 +5,6 @@
 
 import json
 import os
-from collections import OrderedDict
 
 from jsonschema import exceptions, Draft4Validator, FormatChecker
 
@@ -20,7 +19,7 @@ FIXTURES_DIR = os.path.join(ROOT_DIR, 'tests/schemas/fixtures')
 
 def load(document):
     with open(document) as fp:
-        return json.load(fp, object_pairs_hook=OrderedDict)
+        return json.load(fp)
 
 
 def validate_schema(schema):

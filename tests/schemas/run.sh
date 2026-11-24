@@ -1099,25 +1099,25 @@ runner "install-if-different know-pattern with additional properties is invalid"
        install-if-different.json \
        install-if-different/known-pattern-with-additional-properties.json \
        INVALID \
-       "oneOf: OrderedDict([('version', '2.0'), ('pattern', 'u-boot'), ('extra', 'property')]) is not valid under any of the given schemas"
+       "oneOf: {'version': '2.0', 'pattern': 'u-boot', 'extra': 'property'} is not valid under any of the given schemas"
 
 runner "install-if-different know-pattern with invalid pattern is invalid" \
        install-if-different.json \
        install-if-different/known-pattern-with-invalid-pattern.json \
        INVALID \
-       "oneOf: OrderedDict([('version', '2.0'), ('pattern', 'invalid-pattern')]) is not valid under any of the given schemas"
+       "oneOf: {'version': '2.0', 'pattern': 'invalid-pattern'} is not valid under any of the given schemas"
 
 runner "install-if-different know-pattern without version is invalid" \
        install-if-different.json \
        install-if-different/known-pattern-without-version.json \
        INVALID \
-       "oneOf: OrderedDict([('pattern', 'u-boot')]) is not valid under any of the given schemas"
+       "oneOf: {'pattern': 'u-boot'} is not valid under any of the given schemas"
 
 runner "install-if-different know-pattern without pattern is invalid" \
        install-if-different.json \
        install-if-different/known-pattern-without-pattern.json \
        INVALID \
-       "oneOf: OrderedDict([('version', '2.0')]) is not valid under any of the given schemas"
+       "oneOf: {'version': '2.0'} is not valid under any of the given schemas"
 
 ## custom pattern
 runner "install-if-different expected document custom-pattern is valid" \
@@ -1129,31 +1129,31 @@ runner "install-if-different custom-pattern with additional properties is invali
        install-if-different.json \
        install-if-different/custom-pattern-with-additional-properties.json \
        INVALID \
-       "oneOf: OrderedDict([('version', '2.0'), ('pattern', OrderedDict([('regexp', '.+'), ('seek', 1024), ('buffer-size', 2024)])), ('extra', 'property')]) is not valid under any of the given schemas"
+       "oneOf: {'version': '2.0', 'pattern': {'regexp': '.+', 'seek': 1024, 'buffer-size': 2024}, 'extra': 'property'} is not valid under any of the given schemas"
 
 runner "install-if-different custom-pattern pattern with additional properties is invalid" \
        install-if-different.json \
        install-if-different/custom-pattern-pattern-with-additional-properties.json \
        INVALID \
-       "oneOf: OrderedDict([('version', '2.0'), ('pattern', OrderedDict([('regexp', '.+'), ('seek', 1024), ('buffer-size', 2024), ('extra', 'property')]))]) is not valid under any of the given schemas"
+       "oneOf: {'version': '2.0', 'pattern': {'regexp': '.+', 'seek': 1024, 'buffer-size': 2024, 'extra': 'property'}} is not valid under any of the given schemas"
 
 runner "install-if-different custom-pattern pattern without version is invalid" \
        install-if-different.json \
        install-if-different/custom-pattern-without-version.json \
        INVALID \
-       "oneOf: OrderedDict([('pattern', OrderedDict([('regexp', '.+'), ('seek', 1024), ('buffer-size', 2024)]))]) is not valid under any of the given schemas"
+       "oneOf: {'pattern': {'regexp': '.+', 'seek': 1024, 'buffer-size': 2024}} is not valid under any of the given schemas"
 
 runner "install-if-different custom-pattern pattern without pattern is invalid" \
        install-if-different.json \
        install-if-different/custom-pattern-without-pattern.json \
        INVALID \
-       "oneOf: OrderedDict([('version', '2.0')]) is not valid under any of the given schemas"
+       "oneOf: {'version': '2.0'} is not valid under any of the given schemas"
 
 runner "install-if-different custom-pattern pattern without regexp is invalid" \
        install-if-different.json \
        install-if-different/custom-pattern-without-regexp.json \
        INVALID \
-       "oneOf: OrderedDict([('version', '2.0'), ('pattern', OrderedDict([('seek', 1024), ('buffer-size', 2024)]))]) is not valid under any of the given schemas"
+       "oneOf: {'version': '2.0', 'pattern': {'seek': 1024, 'buffer-size': 2024}} is not valid under any of the given schemas"
 
 runner "install-if-different custom-pattern with only required values is valid" \
        install-if-different.json \
@@ -1212,7 +1212,7 @@ runner "metadata empty version is invalid" \
        metadata.json \
        metadata/empty-version-property.json \
        INVALID \
-       "properties/version/minLength: '' is too short"
+       "properties/version/minLength: '' should be non-empty"
 
 ## PROPERTY: supported-hardware
 runner "metadata supported-hardware property is required" \
@@ -1266,13 +1266,13 @@ runner "metadata empty objects property is invalid" \
        metadata.json \
        metadata/empty-objects-property.json \
        INVALID \
-       "properties/objects/minItems: [] is too short"
+       "properties/objects/minItems: [] should be non-empty"
 
 runner "metadata empty objects array item is invalid" \
        metadata.json \
        metadata/empty-objects-array-item.json \
        INVALID \
-       "properties/objects/items/minItems: [] is too short"
+       "properties/objects/items/minItems: [] should be non-empty"
 
 
 # Results
